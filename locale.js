@@ -1,6 +1,27 @@
 "use strict";
 
 const sinhalaText = {
+  "About us": "අපි ගැන",
+  "Contact us": "අපව අමතන්න",
+  "Watch on YouTube": "YouTube එකෙන් බලන්න",
+  "About Gaming Lokuu Optimize": "Gaming Lokuu Optimize ගැන",
+  "Gaming Lokuu Optimize is a Sri Lankan Free Fire fan project by Gaming Lokuu. Headshot Tuner gives Free Fire and MAX players a free starting point for sensitivity, graphics and FPS settings.": "Gaming Lokuu Optimize කියන්නේ Gaming Lokuu කරන ශ්‍රී ලාංකික Free Fire fan project එකක්. Headshot Tuner එකෙන් Free Fire සහ MAX playersලාට sensitivity, graphics සහ FPS සඳහා මුලින් test කරන්න නොමිලේ settings ලැබෙනවා.",
+  "Gaming Lokuu on YouTube": "Gaming Lokuu YouTube channel එක",
+  "Watch Free Fire gameplay, Lone Wolf matches, customs and live streams.": "Free Fire gameplay, Lone Wolf matches, customs සහ live streams බලන්න.",
+  "How to use Headshot Tuner": "Headshot Tuner භාවිත කරන විදිහ",
+  "Generate your settings": "Settings හදාගන්න",
+  "Enter your phone model, RAM and storage. Pick your game version, finger layout and usual drag length, then select Generate my settings.": "ෆෝන් මාදිලිය, RAM සහ storage එක දාන්න. Game version එක, ඇඟිලි ගණන සහ සාමාන්‍යයෙන් drag කරන දුර තෝරලා මගේ settings හදන්න ඔබන්න.",
+  "Test and fine-tune": "Test කරලා අගයන් සකසන්න",
+  "In the Training Ground, use the same weapon and distance. If the aim stops below the head, add 5. If it goes past the head, subtract 5. Then save or download your settings.": "Training Ground එකේ එකම weapon එකයි දුරයි තියාගන්න. Aim එක හිසට පහළින් නවතිනවා නම් 5ක් එකතු කරන්න. හිස පහු කරනවා නම් 5ක් අඩු කරන්න. ඊට පස්සේ settings save හෝ download කරන්න.",
+  "Frequently asked questions": "නිතර අහන ප්‍රශ්න",
+  "Is Headshot Tuner free?": "Headshot Tuner එක නොමිලේ ද?",
+  "Yes. All six sensitivity values, graphics and FPS recommendations, and saving or downloading your settings are free.": "ඔව්. Sensitivity අගයන් 6ම, graphics සහ FPS recommendations, settings save කිරීම සහ download කිරීම නොමිලේ.",
+  "Where are my settings saved?": "මගේ settings save වෙන්නේ කොහෙද?",
+  "When you choose Save on this device, the profile is stored in this browser. You can download a text file to keep a copy.": "මේ device එකේ save කරන්න තෝරද්දී profile එක මේ browser එකේ save වෙනවා. Copy එකක් තියාගන්න text file එක download කරන්න පුළුවන්.",
+  "Need help with the tuner or found a bug? Send us your phone model, game version and a short description of what happened.": "Tuner එක භාවිත කරන්න උදව් ඕනද? Bug එකක් හම්බුණාද? ෆෝන් මාදිලිය, game version එක සහ මොකද වුණේ කියලා කෙටියෙන් අපට එවන්න.",
+  "Chat on WhatsApp": "WhatsApp එකෙන් කතා කරන්න",
+  "Main navigation": "ප්‍රධාන මෙනුව",
+  "Site links": "Website links",
   "Headshot Tuner": "හෙඩ්ෂොට් ටියුනර්",
   "Headshot": "හෙඩ්ෂොට්",
   "Tuner.": "ටියුනර්.",
@@ -125,11 +146,13 @@ function translate(text, values = {}) {
 
 const languageButtons = document.querySelectorAll("[data-language]");
 const textNodes = [...document.querySelectorAll("[data-i18n]")].map(node => [node, node.textContent]);
+const labels = [...document.querySelectorAll("[data-i18n-label]")].map(node => [node, node.getAttribute("aria-label")]);
 const placeholders = [...document.querySelectorAll("[placeholder]")].map(node => [node, node.placeholder]);
 
 function applyLanguage() {
   document.documentElement.lang = language;
   for (const [node, text] of textNodes) node.textContent = translate(text);
+  for (const [node, text] of labels) node.setAttribute("aria-label", translate(text));
   for (const [node, text] of placeholders) node.placeholder = translate(text);
   for (const button of languageButtons) {
     button.setAttribute("aria-pressed", String(button.dataset.language === language));

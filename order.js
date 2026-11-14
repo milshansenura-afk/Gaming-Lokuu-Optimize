@@ -10,7 +10,7 @@ function updateWhatsApp() {
   contact.searchParams.set("text", language === "si"
     ? "Hi Gaming Lokuu Optimize, මට Headshot Tuner එක ගැන ප්‍රශ්නයක් තියෙනවා."
     : "Hi Gaming Lokuu Optimize, I have a question about Headshot Tuner.");
-  document.querySelector("[data-contact-link]").href = contact.href;
+  for (const link of document.querySelectorAll("[data-contact-link]")) link.href = contact.href;
 
   const orderLink = document.querySelector("[data-order-link]");
   if (!orderLink) return;

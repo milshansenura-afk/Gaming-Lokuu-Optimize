@@ -215,3 +215,34 @@ html[lang="si"] .section-heading h2 { line-height: 1.25; }
   html[lang="si"] .hero h1 { font-size: clamp(44px,11vw,65px); }
   .fields input, .fields select, .tuning select { font-size: 16px; }
 }
+
+.community, .faq-section, .contact-section { padding-top: 44px; scroll-margin-top: 72px; }
+.community-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 14px; }
+.community-card, .contact-card { padding: clamp(18px,3.5vw,32px); }
+.community-card h2, .contact-card h2 { font-size: clamp(22px,3vw,31px); letter-spacing: -.035em; line-height: 1.25; }
+.community-card p, .contact-card p { color: var(--muted); margin-top: 8px; max-width: 56ch; }
+.youtube-card { border-top-color: #9b534a; background: linear-gradient(135deg,#342020,#191b20 68%); }
+.youtube { margin-top: 16px; background: #ffcfca; color: #3c1513; }
+.youtube:hover { background: #ffe4df; }
+.social-icon { width: 20px; height: 20px; flex: none; }
+.guide-steps { list-style: none; padding: 0; margin: 0; counter-reset: guide-step; }
+.guide-steps .guide-card { counter-increment: guide-step; }
+.guide-steps h3::before { content: counter(guide-step) ". "; color: var(--amber); }
+.contact-card { display: flex; gap: 18px; align-items: center; justify-content: space-between; border-top-color: #528368; }
+.contact-card .button { flex: none; }
+.footer-links { gap: 11px 16px; flex-wrap: wrap; }
+.footer-inner { flex-wrap: wrap; padding-block: 15px; }
+@media (max-width: 1080px) { .header nav { gap: 12px; } }
+@media (max-width: 880px) {
+  .header-inner { flex-wrap: wrap; padding-top: 8px; row-gap: 5px; }
+  .header nav { order: 3; width: 100%; margin: 0; gap: 4px 14px; overflow-x: auto; white-space: nowrap; padding: 2px 0 7px; }
+  .header nav > a[href="#guide"] { display: inline; }
+  .header nav a { padding-block: 4px; }
+  .language-picker { margin-left: auto; }
+  .community, .guide, .faq-section, .contact-section, .tuner, .pack-section { scroll-margin-top: 105px; }
+}
+@media (max-width: 620px) {
+  .community, .faq-section, .contact-section { padding-top: 32px; }
+  .community-grid { grid-template-columns: 1fr; }
+  .contact-card { flex-direction: column; align-items: flex-start; }
+}
