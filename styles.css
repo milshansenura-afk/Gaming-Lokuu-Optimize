@@ -32,7 +32,7 @@ nav a:hover { color: var(--amber); }
 .nav-pack { color: var(--amber); border: 1px solid #644622; border-radius: 5px; padding: 8px 11px; }
 .hero { isolation: isolate; position: relative; overflow: hidden; min-height: 490px; display: grid; align-items: center; border-bottom: 1px solid #54402c; background: #1a1716; }
 .hero::before, .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; }
-.hero::before { background: radial-gradient(ellipse at 80% 50%, #8d4c22, transparent 68%), url("./assets/hero.webp") center 36% / cover no-repeat; background-blend-mode: soft-light, normal; }
+.hero::before { background: radial-gradient(ellipse at 80% 50%, #8d4c22, transparent 68%), url("./hero.webp") center 36% / cover no-repeat; background-blend-mode: soft-light, normal; }
 .hero::after { background: linear-gradient(90deg,#101114 3%,#101114ee 28%,#13131760 54%,transparent 76%),linear-gradient(0deg,#101114b0,transparent 31%); }
 .hero-inner { padding-block: 48px 56px; }
 .hero-copy { max-width: 510px; }
@@ -167,3 +167,51 @@ textarea { padding-block: 7px; margin-top: 9px; resize: vertical; }
   .tag { padding-inline: 5px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+@font-face {
+  font-family: "Noto Sans Sinhala";
+  src: url("./sinhala.woff") format("woff");
+  font-display: swap;
+  unicode-range: U+0D80-0DFF, U+200C-200D;
+}
+body { font-family: "Instrument Sans", "Segoe UI", "Noto Sans Sinhala", system-ui, sans-serif; }
+.header { position: sticky; top: 0; z-index: 2; background: #101114f5; border-color: #4c3827; }
+.header-inner { min-height: 69px; }
+.header nav { margin-left: auto; }
+.brand-logo { flex: none; filter: drop-shadow(0 2px 8px #ffb33c38); }
+.logo-base { fill: var(--amber); }
+.logo-ring { fill: none; stroke: #3c2a14; stroke-width: 1; }
+.logo-letters { fill: none; stroke: #19130c; stroke-width: 3.2; stroke-linecap: square; stroke-linejoin: round; }
+.footer .brand-logo { width: 34px; height: 34px; }
+.language-picker { flex: none; display: inline-flex; align-items: stretch; padding: 3px; gap: 2px; border: 1px solid #4d4133; border-radius: 7px; background: #18191d; }
+.language-picker button { border: 0; background: transparent; color: var(--muted); padding: 5px 8px; border-radius: 4px; min-height: 30px; font-weight: 800; font-size: 12px; }
+.language-picker button[aria-pressed="true"] { background: var(--amber); color: #181107; }
+.nav-whatsapp { color: #8ff5b9; padding: 7px 10px; border: 1px solid #386a4d; border-radius: 5px; }
+.nav-whatsapp:hover { color: #bdf9d6; background: #1d3426; }
+.hero { border-bottom: 2px solid #a36728; }
+.hero::after { background: linear-gradient(90deg,#0e0f13 3%,#0e0f13ee 28%,#13131760 54%,transparent 76%),linear-gradient(0deg,#101114b0,transparent 31%); }
+.hero .kicker { display: flex; align-items: center; gap: 9px; }
+.hero .kicker::before { content: ""; width: 18px; height: 2px; background: var(--amber); box-shadow: 0 0 12px #ffb33c65; }
+.hero-detail { color: #c6c2bd; font-size: 13px; margin-top: 6px; }
+html[lang="si"] .hero h1 { font-family: "Noto Sans Sinhala", system-ui, sans-serif; font-size: clamp(51px,8vw,111px); line-height: 1.1; letter-spacing: -.04em; }
+html[lang="si"] .section-heading h2 { line-height: 1.25; }
+.panel { background: linear-gradient(155deg,#1e2025,#17191e 46%); border-top-color: #585044; box-shadow: 0 12px 34px #08080840; }
+.form, .result { border-radius: 8px 14px 8px 14px; }
+.panel-title { padding-bottom: 5px; }
+.result-empty { background: radial-gradient(ellipse at 50% 42%,#31251999,#131417de 66%), repeating-linear-gradient(0deg,#28241f 0 1px,transparent 1px 19px), repeating-linear-gradient(90deg,#28241f 0 1px,#151417 1px 19px); }
+.reticle { border-style: dashed; outline: 1px solid #654726; outline-offset: 7px; margin-bottom: 15px; }
+.result-values > div { border-left: 2px solid #96672f; }
+.tuner, .pack-section, .guide { scroll-margin-top: 72px; }
+@media(max-width:850px) { .header-inner { gap: 11px; } }
+@media(max-width:700px) { .header nav > a[href="#guide"] { display:none; } .header nav { gap: 7px; } }
+@media(max-width:620px) {
+  .header-inner { min-height: 64px; gap: 6px; }
+  .header nav > a[href="#tuner"], .header nav .nav-pack { display:none; }
+  .brand-logo { width: 33px; height: 33px; }
+  .nav-whatsapp { padding: 6px; }
+  .language-picker button { padding-inline: 5px; font-size: 11px; }
+  .hero::after { background: linear-gradient(90deg,#101114f4,#1011149e 58%,#1011142e), linear-gradient(0deg,#101114a0,transparent 35%); }
+  .hero h1 { font-size: clamp(58px,13vw,82px); }
+  html[lang="si"] .hero h1 { font-size: clamp(44px,11vw,65px); }
+  .fields input, .fields select, .tuning select { font-size: 16px; }
+}

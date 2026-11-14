@@ -6,18 +6,26 @@
   <meta name="theme-color" content="#111215">
   <meta name="description" content="Free Fire sensitivity and smooth gameplay settings for your phone. Get six free slider values and tune your headshot drag.">
   <title>Headshot Tuner | Gaming Lokuu Optimize</title>
-  <link rel="icon" href="./assets/mark.svg" type="image/svg+xml">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 52 52%27%3E%3Cpath fill=%27%23ffb33c%27 d=%27M26 1 47 9v24L26 51 5 33V9Z%27/%3E%3Cpath fill=%27none%27 stroke=%27%23151517%27 stroke-width=%273%27 d=%27M25 18h-8l-4 5v9h12v-8h-6m10-6v14h9%27/%3E%3C/svg%3E">
   <link rel="stylesheet" href="./styles.css">
+  <script src="./locale.js" defer></script>
   <script src="./app.js" defer></script>
+  <script src="./config.js" defer></script>
+  <script src="./order.js" defer></script>
 </head>
 <body>
   <header class="header">
     <div class="wrap header-inner">
-      <a class="brand" href="./"><img src="./assets/mark.svg" width="38" height="38" alt=""><span>Gaming Lokuu<small>OPTIMIZE</small></span></a>
+      <a class="brand" href="./"><svg class="brand-logo" viewBox="0 0 52 52" width="42" height="42" aria-hidden="true"><path class="logo-base" d="M26 1 47 9v24L26 51 5 33V9Z"/><path class="logo-ring" d="M26 5 43 12v19L26 45 9 31V12Z"/><path class="logo-letters" d="M25 18h-8l-4 5v9h12v-8h-6m10-6v14h9"/></svg><span>Gaming Lokuu<small>OPTIMIZE</small></span></a>
       <nav aria-label="Main navigation">
-        <a href="#tuner">Headshot Tuner</a>
-        <a href="#guide">How to use</a>
+        <a href="#tuner"><span data-i18n>Headshot Tuner</span></a>
+        <a href="#guide"><span data-i18n>How to use</span></a>
+        <a class="nav-whatsapp" href="https://wa.me/94712480526" target="_blank" rel="noopener noreferrer" data-contact-link>WhatsApp</a>
       </nav>
+      <div class="language-picker" role="group" aria-label="Language / භාෂාව">
+        <button type="button" data-language="en" lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-language="si" lang="si" aria-pressed="false">සිංහල</button>
+      </div>
     </div>
   </header>
   <main>
@@ -25,11 +33,11 @@
       <div class="wrap hero-inner">
         <div class="hero-copy">
           <p class="kicker">FREE FIRE &amp; FREE FIRE MAX</p>
-          <h1>Headshot<br><em>Tuner.</em></h1>
-          <p class="hero-description">Free Fire sensitivity and smooth gameplay settings for your phone.</p>
-          <p class="sinhala" lang="si">ඔයාගේ phone එකට සහ drag එකට ගැළපෙන settings හදාගන්න.</p>
+          <h1><span data-i18n>Headshot</span><br><em><span data-i18n>Tuner.</span></em></h1>
+          <p class="hero-description"><span data-i18n>Free Fire sensitivity and smooth gameplay settings for your phone.</span></p>
+          <p class="hero-detail"><span data-i18n>Tune your aim by phone, grip and drag length.</span></p>
           <div class="hero-actions">
-            <a class="button primary" href="#tuner">Get free settings <span aria-hidden="true">↓</span></a>
+            <a class="button primary" href="#tuner"><span data-i18n>Get free settings</span> <span aria-hidden="true">↓</span></a>
           </div>
         </div>
       </div>
@@ -37,89 +45,90 @@
 
     <section class="wrap tuner" id="tuner" aria-labelledby="tuner-heading">
       <div class="section-heading">
-        <div><h2 id="tuner-heading">Set up your aim</h2><p>Enter your phone details and pick the way you drag to aim.</p></div>
-        <span class="tag">All six sliders free</span>
+        <div><h2 id="tuner-heading"><span data-i18n>Set up your aim</span></h2><p><span data-i18n>Enter your phone details and pick the way you drag to aim.</span></p></div>
+        <span class="tag"><span data-i18n>All six sliders free</span></span>
       </div>
       <div class="tuner-grid">
         <form class="panel form" id="profile-form">
-          <div class="panel-title"><span class="signal" aria-hidden="true"></span><h3>Phone setup</h3></div>
+          <div class="panel-title"><span class="signal" aria-hidden="true"></span><h3><span data-i18n>Phone setup</span></h3></div>
           <div class="fields">
-            <label class="wide">Phone model<input name="model" required pattern=".*\S.*" maxlength="64" placeholder="e.g. Infinix Hot 60i"></label>
-            <label>Physical RAM<select name="ram"><option value="">Not sure</option><option>2 GB</option><option>3 GB</option><option>4 GB</option><option>6 GB</option><option>8 GB</option><option>12 GB</option><option>16+ GB</option></select></label>
-            <label>Internal storage (ROM)<select name="storage"><option value="">Not sure</option><option>32 GB</option><option>64 GB</option><option>128 GB</option><option>256 GB</option><option>512 GB</option><option>1 TB+</option></select></label>
-            <label>Game version<select name="game"><option value="ff">Free Fire</option><option value="max">Free Fire MAX</option></select></label>
-            <label>Display refresh rate<select name="refresh"><option value="">Not sure</option><option value="60">60 Hz</option><option value="90">90 Hz</option><option value="120">120 Hz</option><option value="144">144 Hz or higher</option></select></label>
-            <label>Gameplay smoothness<select name="smoothness"><option value="unknown">Not sure yet</option><option value="choppy">Often stutters</option><option value="steady">Mostly stable</option><option value="smooth">Very smooth</option></select></label>
-            <label>Free storage (optional)<input name="freeSpace" type="number" min="0" max="4096" step="0.1" inputmode="decimal" placeholder="e.g. 12 GB"></label>
+            <label class="wide"><span data-i18n>Phone model</span><input name="model" required pattern=".*\S.*" maxlength="64" placeholder="e.g. Infinix Hot 60i"></label>
+            <label><span data-i18n>Physical RAM</span><select name="ram"><option value="" data-i18n>Not sure</option><option>2 GB</option><option>3 GB</option><option>4 GB</option><option>6 GB</option><option>8 GB</option><option>12 GB</option><option>16+ GB</option></select></label>
+            <label><span data-i18n>Internal storage (ROM)</span><select name="storage"><option value="" data-i18n>Not sure</option><option>32 GB</option><option>64 GB</option><option>128 GB</option><option>256 GB</option><option>512 GB</option><option>1 TB+</option></select></label>
+            <label><span data-i18n>Game version</span><select name="game"><option value="ff">Free Fire</option><option value="max">Free Fire MAX</option></select></label>
+            <label><span data-i18n>Display refresh rate</span><select name="refresh"><option value="" data-i18n>Not sure</option><option value="60">60 Hz</option><option value="90">90 Hz</option><option value="120">120 Hz</option><option value="144" data-i18n>144 Hz or higher</option></select></label>
+            <label><span data-i18n>Gameplay smoothness</span><select name="smoothness"><option value="unknown" data-i18n>Not sure yet</option><option value="choppy" data-i18n>Often stutters</option><option value="steady" data-i18n>Mostly stable</option><option value="smooth" data-i18n>Very smooth</option></select></label>
+            <label><span data-i18n>Free storage (optional)</span><input name="freeSpace" type="number" min="0" max="4096" step="0.1" inputmode="decimal" placeholder="e.g. 12 GB"></label>
           </div>
-          <div class="panel-title form-divider"><span class="signal" aria-hidden="true"></span><h3>Drag and controls</h3></div>
-          <fieldset class="style-picker"><legend>Play style</legend>
-            <label><input type="radio" name="style" value="balanced" checked><span>Balanced</span></label>
-            <label><input type="radio" name="style" value="rush"><span>Rush / drag</span></label>
-            <label><input type="radio" name="style" value="precision"><span>Scope control</span></label>
+          <div class="panel-title form-divider"><span class="signal" aria-hidden="true"></span><h3><span data-i18n>Drag and controls</span></h3></div>
+          <fieldset class="style-picker"><legend><span data-i18n>Play style</span></legend>
+            <label><input type="radio" name="style" value="balanced" checked><span><span data-i18n>Balanced</span></span></label>
+            <label><input type="radio" name="style" value="rush"><span><span data-i18n>Rush / drag</span></span></label>
+            <label><input type="radio" name="style" value="precision"><span><span data-i18n>Scope control</span></span></label>
           </fieldset>
           <div class="fields">
-            <label>Finger layout<select name="fingers"><option value="2">2 fingers</option><option value="3">3 fingers</option><option value="4">4+ fingers</option></select></label>
-            <label>Upward drag length<select name="drag"><option value="normal">Medium</option><option value="short">Short</option><option value="long">Long</option></select></label>
+            <label><span data-i18n>Finger layout</span><select name="fingers"><option value="2" data-i18n>2 fingers</option><option value="3" data-i18n>3 fingers</option><option value="4" data-i18n>4+ fingers</option></select></label>
+            <label><span data-i18n>Upward drag length</span><select name="drag"><option value="normal" data-i18n>Medium</option><option value="short" data-i18n>Short</option><option value="long" data-i18n>Long</option></select></label>
           </div>
           <details class="swipe-test">
-            <summary>Optional swipe test</summary>
+            <summary><span data-i18n>Optional swipe test</span></summary>
             <div class="swipe-body">
-              <p>Use the phone you play on. Starting in the marked band, swipe up three times with your shooting finger.</p>
-              <div id="swipe-pad" aria-hidden="true"><span>↑</span><b>START YOUR SWIPE HERE</b></div>
-              <div class="swipe-status"><span id="swipe-status" role="status">0 of 3 swipes recorded</span><button type="button" id="reset-swipes">Reset swipes</button></div>
+              <p><span data-i18n>Use the phone you play on. Starting in the marked band, swipe up three times with your shooting finger.</span></p>
+              <div id="swipe-pad" aria-hidden="true"><span>↑</span><b><span data-i18n>START YOUR SWIPE HERE</span></b></div>
+              <div class="swipe-status"><span id="swipe-status" role="status"></span><button type="button" id="reset-swipes"><span data-i18n>Reset swipes</span></button></div>
             </div>
           </details>
-          <button class="button primary generate" type="submit">Generate my settings <span aria-hidden="true">→</span></button>
+          <button class="button primary generate" type="submit"><span data-i18n>Generate my settings</span> <span aria-hidden="true">→</span></button>
         </form>
 
         <section class="panel result" id="result" aria-labelledby="result-title">
           <div class="result-heading">
-            <div><div class="panel-title"><span class="signal" aria-hidden="true"></span><h3 id="result-title" tabindex="-1">Your headshot settings</h3></div><p id="profile-label">Sensitivity and smooth gameplay</p></div>
+            <div><div class="panel-title"><span class="signal" aria-hidden="true"></span><h3 id="result-title" tabindex="-1"><span data-i18n>Your headshot settings</span></h3></div><p id="profile-label"><span data-i18n>Sensitivity and smooth gameplay</span></p></div>
             <span class="tag neutral">0–200</span>
           </div>
           <div id="result-empty" class="result-empty">
-            <div class="reticle" aria-hidden="true"><img src="./assets/mark.svg" width="46" height="46" alt=""></div>
-            <h4>Your settings will appear here</h4>
-            <p>Fill in your phone setup and generate a starting preset.</p>
+            <div class="reticle" aria-hidden="true"><svg class="brand-logo" viewBox="0 0 52 52" width="42" height="42" aria-hidden="true"><path class="logo-base" d="M26 1 47 9v24L26 51 5 33V9Z"/><path class="logo-ring" d="M26 5 43 12v19L26 45 9 31V12Z"/><path class="logo-letters" d="M25 18h-8l-4 5v9h12v-8h-6m10-6v14h9"/></svg></div>
+            <h4><span data-i18n>Your settings will appear here</span></h4>
+            <p><span data-i18n>Fill in your phone setup and generate a starting preset.</span></p>
           </div>
           <div id="result-content" hidden>
             <dl id="values" class="result-values"></dl>
             <div class="result-actions">
-              <button class="button outline" id="copy-settings" type="button">Copy settings</button>
-              <button class="button outline" id="save-profile" type="button">Save on this device</button>
+              <button class="button outline" id="copy-settings" type="button"><span data-i18n>Copy settings</span></button>
+              <button class="button outline" id="save-profile" type="button"><span data-i18n>Save on this device</span></button>
+              <button class="button outline" id="download-settings" type="button"><span data-i18n>Download .txt</span></button>
             </div>
             <textarea id="copy-fallback" aria-label="Settings text to copy" rows="10" readonly hidden></textarea>
             <p id="result-status" role="status"></p>
             <div class="performance">
-              <h4>Smooth gameplay settings</h4>
-              <p>Open Settings → Display. FPS options vary by device and game version.</p>
-              <dl class="display-settings"><div><dt>Graphics</dt><dd id="graphics-setting"></dd></div><div><dt>In-game FPS</dt><dd id="fps-setting"></dd></div></dl>
+              <h4><span data-i18n>Smooth gameplay settings</span></h4>
+              <p><span data-i18n>Open Settings → Display. FPS options vary by device and game version.</span></p>
+              <dl class="display-settings"><div><dt><span data-i18n>Graphics</span></dt><dd id="graphics-setting"></dd></div><div><dt><span data-i18n>In-game FPS</span></dt><dd id="fps-setting"></dd></div></dl>
               <ul id="performance-list"></ul>
             </div>
             <div class="tuning">
-              <h4>Fine-tune your headshot drag</h4>
-              <p>Try ten chest-to-head drags with the same weapon and distance. Adjust the slider based on where most shots land.</p>
-              <label>Slider tested<select id="tune-scope"></select></label>
-              <div class="tune-options"><button type="button" data-tune="5">Stops below head +5</button><button type="button" data-tune="-5">Goes past head −5</button><button type="button" id="undo-tuning" disabled>Undo</button></div>
+              <h4><span data-i18n>Fine-tune your headshot drag</span></h4>
+              <p><span data-i18n>Try ten chest-to-head drags with the same weapon and distance. Adjust the slider based on where most shots land.</span></p>
+              <label><span data-i18n>Slider tested</span><select id="tune-scope"></select></label>
+              <div class="tune-options"><button type="button" data-tune="5"><span data-i18n>Stops below head +5</span></button><button type="button" data-tune="-5"><span data-i18n>Goes past head −5</span></button><button type="button" id="undo-tuning" disabled><span data-i18n>Undo</span></button></div>
             </div>
           </div>
-          <button class="button outline load" id="load-profile" type="button" hidden>Load saved profile</button>
+          <button class="button outline load" id="load-profile" type="button" hidden><span data-i18n>Load saved profile</span></button>
         </section>
       </div>
     </section>
 
 
     <section class="wrap guide" id="guide" aria-labelledby="guide-heading">
-      <div class="section-heading"><h2 id="guide-heading">Test in the Training Ground</h2></div>
+      <div class="section-heading"><h2 id="guide-heading"><span data-i18n>Test in the Training Ground</span></h2></div>
       <div class="guide-grid">
-        <article class="panel guide-card"><h3>Apply your preset</h3><p>Enter the six values in Settings → Sensitivity. Apply the recommended graphics and FPS in Settings → Display.</p></article>
-        <article class="panel guide-card"><h3>Check your drag</h3><p>Start with General for unscoped shots. Test Red Dot and each scope separately.</p></article>
-        <article class="panel guide-card"><h3>Save the settings that fit</h3><p>Use the same weapon and distance for every test. Save the preset once the drag feels consistent.</p></article>
+        <article class="panel guide-card"><h3><span data-i18n>Apply your preset</span></h3><p><span data-i18n>Enter the six values in Settings → Sensitivity. Apply the recommended graphics and FPS in Settings → Display.</span></p></article>
+        <article class="panel guide-card"><h3><span data-i18n>Check your drag</span></h3><p><span data-i18n>Start with General for unscoped shots. Test Red Dot and each scope separately.</span></p></article>
+        <article class="panel guide-card"><h3><span data-i18n>Save the settings that fit</span></h3><p><span data-i18n>Use the same weapon and distance for every test. Save the preset once the drag feels consistent.</span></p></article>
       </div>
-      <details class="faq"><summary>Why do two players on the same phone get different results?</summary><p>Grip, drag length and swipe-test results can change the starting preset. Use the in-game feedback to fine-tune each slider for how you play.</p></details>
+      <details class="faq"><summary><span data-i18n>Why do two players on the same phone get different results?</span></summary><p><span data-i18n>Grip, drag length and swipe-test results can change the starting preset. Use the in-game feedback to fine-tune each slider for how you play.</span></p></details>
     </section>
   </main>
-  <footer class="footer"><div class="wrap footer-inner"><a class="brand" href="./"><img src="./assets/mark.svg" width="32" height="32" alt=""><span>Gaming Lokuu<small>OPTIMIZE</small></span></a><p>Unofficial Free Fire fan project · Settings are starting presets.</p></div></footer>
+  <footer class="footer"><div class="wrap footer-inner"><a class="brand" href="./"><svg class="brand-logo" viewBox="0 0 52 52" width="42" height="42" aria-hidden="true"><path class="logo-base" d="M26 1 47 9v24L26 51 5 33V9Z"/><path class="logo-ring" d="M26 5 43 12v19L26 45 9 31V12Z"/><path class="logo-letters" d="M25 18h-8l-4 5v9h12v-8h-6m10-6v14h9"/></svg><span>Gaming Lokuu<small>OPTIMIZE</small></span></a><p><span data-i18n>Unofficial Free Fire fan project · Settings are starting presets.</span></p></div></footer>
 </body>
 </html>

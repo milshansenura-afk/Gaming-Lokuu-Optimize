@@ -82,17 +82,22 @@ function renderValues() {
   byId("undo-tuning").disabled = tuningHistory.length === 0;
 }
 
+function renderPerformance() {
+  const { inputs } = profile;
+  const { graphics, fps, tips } = performanceSettings(inputs);
+  byId("graphics-setting").textContent = translate(graphics);
+  byId("fps-setting").textContent = translate(fps);
+  byId("performance-list").replaceChildren(...tips.map((text) => {
+    const item = document.createElement("li");
+    item.textContent = translate(text);
+    return item;
+  }));
+}
+
 function renderProfile() {
   const { inputs } = profile;
   byId("profile-label").textContent = inputs.model + " · " + (inputs.game === "max" ? "Free Fire MAX" : "Free Fire");
-  const { graphics, fps, tips } = performanceSettings(inputs);
-  byId("graphics-setting").textContent = graphics;
-  byId("fps-setting").textContent = fps;
-  byId("performance-list").replaceChildren(...tips.map((text) => {
-    const item = document.createElement("li");
-    item.textContent = text;
-    return item;
-  }));
+  renderPerformance();
   byId("result-empty").hidden = true;
   byId("result-content").hidden = false;
   byId("copy-fallback").hidden = true;
@@ -123,8 +128,19 @@ function resetGesture() {
 const pad = byId("swipe-pad");
 const swipeStatus = byId("swipe-status");
 function updateSwipeStatus() {
-  swipeStatus.textContent = swipes.length === 3 ? "3 of 3 swipes recorded. Ready to generate." : swipes.length + " of 3 swipes recorded";
+  swipeStatus.textContent = translate(swipes.length === 3
+    ? "3 of 3 swipes recorded. Ready to generate."
+    : "{count} of 3 swipes recorded", { count: swipes.length });
 }
+updateSwipeStatus();
+document.addEventListener("localechange", () => {
+  updateSwipeStatus();
+  status.textContent = "";
+  byId("copy-fallback").hidden = true;
+  byId("copy-fallback").setAttribute("aria-label", translate("Settings text to copy"));
+  if (profile) renderPerformance();
+});
+byId("copy-fallback").setAttribute("aria-label", translate("Settings text to copy"));
 pad.addEventListener("pointerdown", (event) => {
   const rect = pad.getBoundingClientRect();
   if (!event.isPrimary || event.button !== 0 || swipes.length >= 3 || event.clientY < rect.bottom - 40) return;
@@ -139,7 +155,7 @@ pad.addEventListener("pointerup", (event) => {
     swipes.push(Math.min(1, distance / gesture.height));
     updateSwipeStatus();
   } else {
-    swipeStatus.textContent = "Swipe farther upward. " + swipes.length + " of 3 recorded.";
+    swipeStatus.textContent = translate("Swipe farther upward. {count} of 3 recorded.", { count: swipes.length });
   }
   resetGesture();
 });
@@ -163,14 +179,14 @@ document.querySelectorAll("[data-tune]").forEach((button) => button.addEventList
   const oldValue = profile.values[index];
   const newValue = clamp(oldValue + Number(button.dataset.tune));
   if (newValue === oldValue) {
-    status.textContent = sliders[index] + " is already at " + oldValue + ".";
+    status.textContent = translate("{slider} is already at {value}.", { slider: sliders[index], value: oldValue });
     return;
   }
   tuningHistory.push({ index, oldValue });
   profile.values[index] = newValue;
   byId("copy-fallback").hidden = true;
   renderValues();
-  status.textContent = sliders[index] + " set to " + newValue + ". Try it again in the Training Ground.";
+  status.textContent = translate("{slider} set to {value}. Try it again in the Training Ground.", { slider: sliders[index], value: newValue });
 }));
 
 byId("undo-tuning").addEventListener("click", () => {
@@ -178,30 +194,46 @@ byId("undo-tuning").addEventListener("click", () => {
   profile.values[index] = oldValue;
   byId("copy-fallback").hidden = true;
   renderValues();
-  status.textContent = sliders[index] + " restored to " + oldValue + ".";
+  status.textContent = translate("{slider} restored to {value}.", { slider: sliders[index], value: oldValue });
 });
 
-byId("copy-settings").addEventListener("click", async () => {
+function settingsText() {
   const lines = sliders.map((label, index) => label + ": " + profile.values[index]);
   const { graphics, fps } = performanceSettings(profile.inputs);
-  const currentText = [
+  return [
     "Headshot Tuner · Gaming Lokuu Optimize — " + profile.inputs.model,
     ...lines,
-    "Graphics: " + graphics,
-    "In-game FPS: " + fps
+    translate("Graphics") + ": " + translate(graphics),
+    translate("In-game FPS") + ": " + translate(fps)
   ].join("\n");
+}
+
+byId("copy-settings").addEventListener("click", async () => {
+  const currentText = settingsText();
   const fallback = byId("copy-fallback");
   try {
     await navigator.clipboard.writeText(currentText);
     fallback.hidden = true;
-    status.textContent = "Settings copied.";
+    status.textContent = translate("Settings copied.");
   } catch {
     fallback.value = currentText;
     fallback.hidden = false;
     fallback.focus();
     fallback.select();
-    status.textContent = "Copy the selected text using your device’s copy command.";
+    status.textContent = translate("Copy the selected text using your device’s copy command.");
   }
+});
+
+byId("download-settings").addEventListener("click", () => {
+  const url = URL.createObjectURL(new Blob([settingsText()], { type: "text/plain;charset=utf-8" }));
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "gaming-lokuu-headshot-settings.txt";
+  document.body.append(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  status.textContent = translate("Settings file downloaded.");
 });
 
 function savedProfile() {
@@ -221,9 +253,9 @@ byId("save-profile").addEventListener("click", () => {
   try {
     localStorage.setItem(storageKey, JSON.stringify(profile));
     byId("load-profile").hidden = false;
-    status.textContent = "Profile saved in this browser.";
+    status.textContent = translate("Profile saved in this browser.");
   } catch {
-    status.textContent = "Browser storage is unavailable. Copy your settings to keep them.";
+    status.textContent = translate("Browser storage is unavailable. Copy your settings to keep them.");
   }
 });
 byId("load-profile").hidden = !savedProfile();
@@ -240,5 +272,5 @@ byId("load-profile").addEventListener("click", () => {
   updateSwipeStatus();
   profile = saved;
   renderProfile();
-  status.textContent = "Saved profile loaded.";
+  status.textContent = translate("Saved profile loaded.");
 });
