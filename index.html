@@ -4,122 +4,48 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0c0a12">
-  <meta name="description" content="Headshot Tuner by Gaming Lokuu Optimize. Get Free Fire headshot sensitivity and smooth gameplay settings for your phone.">
-  <title>Headshot Tuner — Gaming Lokuu Optimize</title>
+  <meta name="description" content="Gaming Lokuu Optimize's Infinix Hot 60i Free Fire optimization pack.">
+  <title>Gaming Lokuu Optimize — Infinix Hot 60i Pack</title>
   <link rel="icon" href="./assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
-  <script src="./app.js" defer></script>
+  <script src="./config.js" defer></script>
+  <script src="./store.js" defer></script>
 </head>
 <body>
-  <svg xmlns="http://www.w3.org/2000/svg" class="svg-defs" aria-hidden="true">
-    <symbol id="target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><path d="M12 2v5m0 10v5M2 12h5m10 0h5"/><circle cx="12" cy="12" r="1.3"/></symbol>
-    <symbol id="phone" viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2"/><path d="M10 18h4"/></symbol>
-    <symbol id="bolt" viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-12h-7l1-8z"/></symbol>
-    <symbol id="sliders" viewBox="0 0 24 24"><path d="M4 7h4m5 0h7M4 17h9m5 0h2"/><circle cx="10.5" cy="7" r="2.5"/><circle cx="15.5" cy="17" r="2.5"/></symbol>
-    <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
-    <symbol id="copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
-    <symbol id="chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
-    <symbol id="grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
-    <symbol id="book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h5a3 3 0 0 1 3 3v15a3 3 0 0 0-3-3H6a2 2 0 0 0-2 2zm10 1a3 3 0 0 1 3-3h3v15h-3a3 3 0 0 0-3 3"/></symbol>
-  </svg>
-  <header class="site-header">
-    <div class="shell header-inner">
-      <a class="brand" href="./" aria-label="Gaming Lokuu Optimize home"><span class="brand-mark"><svg class="icon"><use href="#target"/></svg></span><span class="brand-name"><span>Gaming Lokuu</span><span class="brand-accent">Optimize</span></span></a>
-      <nav aria-label="Main navigation">
-        <a class="nav-active" href="#generator">Generator</a>
-        <a href="#guide">How it works</a>
-      </nav>
-      <span class="header-tag"><span></span> FREE FIRE TOOLKIT</span>
-    </div>
-  </header>
+  <header class="site-header"><div class="shell header-inner">
+    <a class="brand" href="./" aria-label="Gaming Lokuu Optimize home"><img class="brand-mark" src="./assets/mark.svg" alt="" width="34" height="34"><span class="brand-name"><span>Gaming Lokuu</span><span class="brand-accent">Optimize</span></span></a>
+    <a id="generator-link" class="button secondary" hidden>Headshot Tuner</a>
+  </div></header>
   <main class="shell">
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero store-hero">
       <div class="hero-copy">
-        <span class="eyebrow"><span></span> BUILT FOR FREE FIRE &amp; MAX</span>
-        <h1 id="hero-title">Headshot<br><em>Tuner</em></h1>
-        <p>Free Fire sensitivity and smooth gameplay settings for your phone.</p>
-        <a href="#generator" class="button primary">Tune my phone <svg class="icon"><use href="#arrow"/></svg></a>
+        <p class="eyebrow"><span></span> GAMING LOKUU OPTIMIZE</p>
+        <h1>Infinix<br><em>Hot 60i.</em></h1>
+        <p>Free Fire optimization pack for the Hot 60i 4G. Set up graphics, build a comfortable HUD, and test your controls before you play ranked.</p>
+        <a href="#pack" class="button primary">See what’s included ↓</a>
       </div>
     </section>
-
-    <section id="generator" class="workspace" aria-labelledby="generator-title">
-      <div class="section-heading">
-        <div><h2 id="generator-title">Headshot Sensitivity</h2><p>Enter your phone setup and choose how you drag to aim.</p></div>
-        <span class="small-badge"><svg class="icon"><use href="#bolt"/></svg> FREE TOOL</span>
-      </div>
-      <div class="workspace-grid">
-        <form id="profile-form" class="panel form-panel">
-          <div class="panel-heading"><span class="tile-icon"><svg class="icon"><use href="#phone"/></svg></span><div><h3>Device setup</h3><p>Enter the specs shown in your phone settings.</p></div></div>
-          <div class="form-grid">
-            <label class="wide">Phone model<input name="model" required maxlength="64" pattern=".*\S.*" autocomplete="off" placeholder="e.g. Infinix Hot 60i"></label>
-            <label>Physical RAM<select name="ram"><option value="">Select RAM</option><option>2 GB</option><option>3 GB</option><option>4 GB</option><option>6 GB</option><option>8 GB</option><option>12 GB</option><option>16+ GB</option></select></label>
-            <label>Internal storage (ROM)<select name="storage"><option value="">Select storage</option><option>32 GB</option><option>64 GB</option><option>128 GB</option><option>256 GB</option><option>512 GB</option><option>1 TB+</option></select></label>
-            <label>Game version<select name="game"><option value="ff">Free Fire</option><option value="max">Free Fire MAX</option></select></label>
-            <label>Display refresh rate<select name="refresh"><option value="">Not sure</option><option value="60">60 Hz</option><option value="90">90 Hz</option><option value="120">120 Hz</option><option value="144">144 Hz or higher</option></select></label>
-            <label>Gameplay smoothness<select name="smoothness"><option value="unknown">Not sure yet</option><option value="choppy">Often stutters</option><option value="steady">Mostly stable</option><option value="smooth">Very smooth</option></select></label>
-            <label>Free storage (optional)<input name="freeSpace" type="number" min="0" max="4096" step="0.1" inputmode="decimal" placeholder="e.g. 12 GB"></label>
-          </div>
-
-          <div class="panel-heading inner-heading"><span class="tile-icon"><svg class="icon"><use href="#sliders"/></svg></span><div><h3>Play style</h3><p>Choose how you hold your phone and swipe to aim.</p></div></div>
-          <fieldset class="style-picker"><legend>Primary play style</legend>
-            <label><input type="radio" name="style" value="balanced" checked><span>Balanced</span></label>
-            <label><input type="radio" name="style" value="rush"><span>Rush / drag</span></label>
-            <label><input type="radio" name="style" value="precision"><span>Scope control</span></label>
-          </fieldset>
-          <div class="form-grid">
-            <label>Finger layout<select name="fingers"><option value="2">2 fingers</option><option value="3">3 fingers</option><option value="4">4+ fingers</option></select></label>
-            <label>Upward drag length<select name="drag"><option value="normal">Medium</option><option value="short">Short</option><option value="long">Long</option></select></label>
-          </div>
-
-          <details class="calibration">
-            <summary><span><svg class="icon"><use href="#target"/></svg> Optional swipe test</span><svg class="icon"><use href="#chevron"/></svg></summary>
-            <div class="calibration-body">
-              <p>On the phone you play on, drag up three times with your usual shooting finger. Start in the marked lower band. This estimates swipe length.</p>
-              <div class="swipe-pad" id="swipe-pad" aria-hidden="true"><span class="swipe-arrow">↑</span><span class="swipe-start">START SWIPE HERE</span></div>
-              <div class="swipe-status"><span id="swipe-status" role="status">0 of 3 swipes recorded</span><button type="button" class="text-button" id="reset-swipes">Reset swipes</button></div>
-            </div>
-          </details>
-          <button type="submit" class="button primary generate"><svg class="icon"><use href="#bolt"/></svg> Generate my settings <svg class="icon end-icon"><use href="#arrow"/></svg></button>
-        </form>
-
-        <div class="result-column">
-          <section class="panel result-panel" id="result" aria-labelledby="result-title">
-            <div class="panel-heading result-heading"><span class="tile-icon"><svg class="icon"><use href="#target"/></svg></span><div><h3 id="result-title" tabindex="-1">Your headshot settings</h3><p id="profile-label">Headshot preset</p></div><span class="scale">0–200</span></div>
-            <div id="result-empty" class="empty-result">
-              <div class="empty-target"><span></span><svg class="icon"><use href="#target"/></svg></div>
-              <h4>Your settings will appear here</h4>
-              <p>Enter your phone model to get a starting preset and graphics settings.</p>
-            </div>
-            <div id="result-content" hidden>
-              <dl id="values" class="result-values"></dl>
-              <div class="result-actions"><button class="button secondary" type="button" id="copy-settings"><svg class="icon"><use href="#copy"/></svg> Copy settings</button><button class="button secondary" type="button" id="save-profile">Save on this device</button></div>
-              <textarea id="copy-fallback" aria-label="Settings text to copy" rows="7" readonly hidden></textarea>
-              <p class="result-status" id="result-status" role="status"></p>
-              <div class="tuning">
-                <h4>Fine-tune your headshot drag</h4>
-                <p>Try 10 chest-to-head drags in the Training Ground. Keep the same weapon, distance and fire button position. Adjust based on where most shots end.</p>
-                <label>Tested aim<select id="tune-scope"></select></label>
-                <div class="tune-options"><button type="button" data-tune="5">Stops below head</button><button type="button" data-tune="-5">Goes past head</button><button type="button" id="undo-tuning" disabled>Undo</button></div>
-              </div>
-              <div class="performance"><h4>Smooth Gameplay Settings</h4><p>Start in Settings → Display. Available options vary by device and game version.</p><dl class="display-settings"><div><dt>Graphics</dt><dd id="graphics-setting"></dd></div><div><dt>In-game FPS</dt><dd id="fps-setting"></dd></div></dl><ul id="performance-list"></ul></div>
-            </div>
-          </section>
-          <section class="panel tip-panel"><span class="tile-icon"><svg class="icon"><use href="#bolt"/></svg></span><div><h3>Test before ranked</h3><p>Open <strong>Settings → Sensitivity</strong> in-game, enter the six values, and try them in the Training Ground.</p></div></section>
-          <button type="button" class="button secondary load-profile" id="load-profile" hidden>Load saved profile</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="guide" class="guide" aria-labelledby="guide-title">
-      <div class="section-heading"><div><h2 id="guide-title">How it works</h2><p>Dial in a setup you can repeat in-game.</p></div></div>
-      <div class="guide-grid">
-        <article class="panel guide-card"><span class="tile-icon"><svg class="icon"><use href="#phone"/></svg></span><h3>Set up your phone</h3><p>Pick your game version, grip and usual drag length. RAM, storage and gameplay smoothness help tailor graphics and FPS guidance.</p></article>
-        <article class="panel guide-card"><span class="tile-icon"><svg class="icon"><use href="#target"/></svg></span><h3>Test your aim</h3><p>Try General without a scope first. Test Red Dot and each scope separately so you can see which setting needs an adjustment.</p></article>
-        <article class="panel guide-card"><span class="tile-icon"><svg class="icon"><use href="#sliders"/></svg></span><h3>Fine-tune one slider</h3><p>Raise the sensitivity if you stop short. Lower it if you overshoot. Save the profile once it feels consistent.</p></article>
-      </div>
-      <details class="calibration faq"><summary><span>Can two players with the same phone get different values?</span><svg class="icon"><use href="#chevron"/></svg></summary><div class="calibration-body"><p>Yes. A short drag and a long drag start with different settings. The swipe test and in-game feedback can further personalize each result. Matching inputs give the same starting preset.</p><p lang="si">එකම phone model එක වුණත්, ඔයාගේ drag එක සහ Training Ground feedback අනුව sensitivity අගයන් වෙනස් කරගන්න පුළුවන්.</p></div></details>
-    </section>
+    <div class="store-grid" id="pack">
+      <section class="panel guide-card pack-content">
+        <h2>Full Optimization Pack</h2>
+        <p lang="si">Hot 60i 4G එකේ graphics, HUD සහ aim එක ඔයාට ගැලපෙන විදිහට හදාගන්න step-by-step guide එකක්.</p>
+        <ul class="pack-list">
+          <li><strong>Graphics and FPS checks</strong><span>Start with stable settings and test Standard vs. MAX on your phone.</span></li>
+          <li><strong>2-, 3- and 4-finger HUD layouts</strong><span>Starting positions and fire-button sizes with an in-game reach test.</span></li>
+          <li><strong>Headshot calibration routine</strong><span>Training drills, per-scope tuning and a repeatable warm-up.</span></li>
+          <li><strong>Lag troubleshooting</strong><span>Distinguish performance stutter from network lag, and check heat, storage and recording load.</span></li>
+        </ul>
+      </section>
+      <section class="panel guide-card order-card" aria-labelledby="order-title">
+        <h2 id="order-title">Hot 60i 4G pack</h2>
+        <div class="price">Rs. 1,500</div>
+        <p>One-time payment · Digital guide</p>
+        <a class="button primary buy" id="order-link" target="_blank" rel="noopener noreferrer" hidden>Order on WhatsApp ↗</a>
+        <p class="payment-status" id="order-status">WhatsApp orders will open soon.</p>
+        <p class="delivery" id="delivery" hidden>Send your order on WhatsApp to get the bank transfer details. We’ll send the PDF in the same chat after confirming your payment.</p>
+      </section>
+    </div>
   </main>
-  <footer class="site-footer"><div class="shell footer-inner"><a class="brand" href="./" aria-label="Gaming Lokuu Optimize home"><span class="brand-mark"><svg class="icon"><use href="#target"/></svg></span><span class="brand-name"><span>Gaming Lokuu</span><span class="brand-accent">Optimize</span></span></a><p>Unofficial Free Fire fan tool. Sensitivity values are starting presets.</p></div></footer>
+  <footer class="site-footer"><div class="shell footer-inner"><p>Gaming Lokuu Optimize · Unofficial Free Fire fan project.</p></div></footer>
 </body>
 </html>
