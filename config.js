@@ -1,6 +1,6 @@
 "use strict";
 
 window.aimForgeStore = Object.freeze({
-  whatsappNumber: "", // Your public WhatsApp Business number, e.g. "+94 7X XXX XXXX".
+  whatsappNumber: "+94712480526", // Public WhatsApp Business number.
   generatorUrl: ""   // Optional public URL of your free generator.
 });
